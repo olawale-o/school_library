@@ -1,12 +1,41 @@
-class Person
-  attr_reader :id
-  attr_accessor :name, :age
+require_relative 'corrector'
 
+class Person
   def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = 1
+    @corrector = Corrector.new
     @name = name
     @age = age
     @parent_permission = parent_permission
+  end
+
+  #  rubocop: disable Style/TrivialAccessors
+  def id
+    #  rubocop: enable Style/TrivialAccessors
+    @id
+  end
+
+  #  rubocop: disable Style/TrivialAccessors
+  def name
+    #  rubocop: enable Style/TrivialAccessors
+    @name
+  end
+
+  #  rubocop: disable Style/TrivialAccessors
+  def age
+    #  rubocop: enable Style/TrivialAccessors
+    @age
+  end
+
+  #  rubocop: disable Style/TrivialAccessors
+  def name=(name)
+    #  rubocop: enable Style/TrivialAccessors
+    @name = name
+  end
+
+  #  rubocop: disable Style/TrivialAccessors
+  def age=(age)
+    #  rubocop: enable Style/TrivialAccessors
+    @age = age
   end
 
   #  rubocop: disable Naming/PredicateName
@@ -18,10 +47,14 @@ class Person
   end
 
   def can_use_services?
-    return true if is_of_age || @parent_permission
+    return true if is_of_age? || @parent_permission
 
     false
   end
 
-  private :is_of_age
+  def validate_name
+    @name = @corrector.correct_name(@name)
+  end
+
+  private :is_of_age?
 end
