@@ -1,8 +1,9 @@
 require_relative 'corrector'
 
 class Person
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age:, name: 'Unknown', parent_permission: true)
     @corrector = Corrector.new
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
