@@ -9,4 +9,14 @@ class Rental
     @book = book
     @book.rentals << self
   end
+
+  def book=(book)
+    @book = book
+    book.rentals << self unless book.rentals.include?(self)
+  end
+
+  def persons=(person)
+    @person = person
+    person.rentals << self unless person.rentals.include?(self)
+  end
 end
