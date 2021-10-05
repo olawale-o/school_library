@@ -35,7 +35,13 @@ class Application
     @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}" }
   end
 
-  
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    key = user_input.to_i
+    handle_create_person_action(key)
+  end
+
+
 end
 
 def main()
