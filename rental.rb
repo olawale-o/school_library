@@ -12,11 +12,11 @@ class Rental
 
   def book=(book)
     @book = book
-    book.rentals << self unless book.rentals.include?(self)
+    book.add_rental(self)
   end
 
-  def persons=(person)
+  def person=(person)
     @person = person
-    person.rentals << self unless person.rentals.include?(self)
+    person.add_rental(self)
   end
 end
