@@ -29,5 +29,9 @@ class Person
     @name = @corrector.correct_name(@name)
   end
 
+  def add_rental(rentals)
+    @rentals << rentals
+  end
+
   private :of_age?
 end
