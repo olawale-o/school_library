@@ -74,6 +74,18 @@ class Application
     @people << teacher
   end
 
+  def rentals_by_id
+    print 'ID of the person: '
+    person_id = user_input.to_i
+    puts "\n"
+    puts 'Rentals:'
+    @people.each do |person|
+      person.id.eql?(person_id) && person.rentals.each do |rental|
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    end
+  end
+
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_index { |index| puts "#{index}) Title: #{@books[index].title}, Author: #{@books[index].author}" }
