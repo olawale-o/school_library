@@ -31,6 +31,11 @@ class Application
   end
 
 
+  def list_people
+    @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}" }
+  end
+
+  
 end
 
 def main()
