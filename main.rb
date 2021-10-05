@@ -30,6 +30,15 @@ class Application
     @books.map { |book| puts "Title: #{book.title}, Author: #{book.author}" }
   end
 
+  def create_book
+    print 'Title: '
+    title = user_input
+    print 'Author: '
+    author = user_input
+    book = Book.new(title: title, author: author)
+    @books << book
+    puts 'Book created successfully'
+  end
 
   def list_people
     @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}" }
@@ -41,7 +50,31 @@ class Application
     handle_create_person_action(key)
   end
 
+  def create_student
+    print 'Age: '
+    age = user_input
+    print 'Name: '
+    name = user_input
+    print 'Has parent permission? [Y/N]: '
+    permission = user_input == 'n'
+    student = Student.new(age: age, classroom: 'classroom', name: name, parent_permission: !permission)
+    puts 'Person created successfully'
+    @people << student
+  end
 
+  def create_teacher
+    print 'Age: '
+    age = user_input
+    print 'Name: '
+    name = user_input
+    print 'Specialization: '
+    specialization = user_input == 'n'
+    teacher = Teacher.new(age: age, name: name, specialization: specialization)
+    puts 'Person created successfully'
+    @people << teacher
+  end
+
+  
 end
 
 def main()
