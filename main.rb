@@ -132,7 +132,7 @@ class Application
     when 6
       rentals_by_id
     else
-      puts 'Please select number between 1 and 7'
+      puts 'Please select a number between 1 and 7'
     end
   end
 
