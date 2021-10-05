@@ -1,1 +1,4 @@
-puts "mains"
+def main()
+end
+
+main
