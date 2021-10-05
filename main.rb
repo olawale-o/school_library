@@ -74,7 +74,64 @@ class Application
     @people << teacher
   end
 
-  
+  def create_rental
+    puts 'Select a book from the following list by number'
+    @books.each_index { |index| puts "#{index}) Title: #{@books[index].title}, Author: #{@books[index].author}" }
+    selected_book_number = user_input.to_i
+    book = @books[selected_book_number]
+    puts 'Select a person from the following list by number (not id)'
+    @people.each_index do |index|
+      print "#{index}) [#{@people[index].class}] Name: #{@people[index].name}, ID: #{@people[index].id}, "
+      print "Age: #{@people[index].age} \n"
+    end
+    selected_person_number = user_input.to_i
+    person = @people[selected_person_number]
+    print 'Date: '
+    date = user_input.to_i
+    Rental.new(date, person, book)
+    puts 'Rental created sccessfully'
+  end
+
+  def run
+    is_running = true
+    while is_running
+      show_welcome_screen
+      key = user_input.to_i
+      if key.eql?(7)
+        is_running = false
+      else
+        handle_all_actions(key)
+      end
+    end
+  end
+
+  def handle_all_actions(key)
+    case key
+    when 1
+      list_all_books
+    when 2
+      list_people
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      rentals_by_id
+    else
+      puts 'Please select number between 1 and 7'
+    end
+  end
+
+  def handle_create_person_action(key)
+    case key
+    when 1
+      create_student
+    else
+      create_teacher
+    end
+  end
 end
 
 def main()
