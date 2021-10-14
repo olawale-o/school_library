@@ -5,19 +5,22 @@ require_relative 'book_creator'
 require_relative 'person_creator'
 require_relative 'rental_creator'
 require_relative 'screen'
+require_relative 'storage'
 
 class Application
   include Screen
 
   def initialize
-    @books = []
-    @people = []
+    @storage = Storage.new
+    @books = @storage.parse[:books]
+    @people = @storage.parse[:people]
+    @rentals = @storage.parse[:rentals]
     @book_creator = BookCreator.new(@books)
     @person_creator = PersonCreator.new(@people)
-    @rental_creator = RentalCreator.new(@books, @people)
+    @rental_creator = RentalCreator.new(@books, @people, @rentals)
     @book_displayer = BookDisplayer.new(@books)
     @people_displayer = PeopleDisplayer.new(@people)
-    @rental_displayer = RentalDisplayer.new(@books, @people)
+    @rental_displayer = RentalDisplayer.new(@rentals)
   end
 
   def run
@@ -26,6 +29,7 @@ class Application
       show_welcome_screen
       key = user_input.to_i
       if key.eql?(7)
+        @storage.stringify(@books, @people, @rentals)
         is_running = false
       else
         handle_all_actions(key)

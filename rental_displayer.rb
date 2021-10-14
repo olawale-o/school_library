@@ -1,10 +1,9 @@
 require_relative 'displayer'
 
 class RentalDisplayer < Displayer
-  def initialize(books, people)
+  def initialize(rentals)
     super()
-    @books = books
-    @people = people
+    @rentals = rentals
   end
 
   def display
@@ -17,9 +16,11 @@ class RentalDisplayer < Displayer
     person_id = user_input.to_i
     puts "\n"
     puts 'Rentals:'
-    @people.each do |person|
-      person.id.eql?(person_id) && person.rentals.each do |rental|
+    @rentals.each do |rental|
+      if rental.person.id.eql?(person_id)
         puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      else
+        puts ''
       end
     end
   end

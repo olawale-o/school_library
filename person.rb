@@ -1,8 +1,8 @@
 require_relative 'corrector'
 
 class Person
-  attr_reader :id, :rentals
-  attr_accessor :name, :age
+  attr_reader :rentals, :parent_permission
+  attr_accessor :name, :age, :id
 
   def initialize(age:, name: 'Unknown', parent_permission: true)
     @corrector = Corrector.new
