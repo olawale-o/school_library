@@ -21,7 +21,7 @@ class Storage
 
   def parse_books
     file_name = 'books.json'
-    [] unless File.exist? file_name
+    return [] unless File.exist? file_name
 
     JSON.parse(File.read(file_name)).map do |book|
       Book.new(title: book['title'], author: book['author'])
@@ -30,7 +30,7 @@ class Storage
 
   def parse_people
     file_name = 'people.json'
-    [] unless File.exist? file_name
+    return [] unless File.exist? file_name
 
     JSON.parse(File.read(file_name)).map do |people|
       if people['json_class'].eql?('Teacher')
@@ -43,7 +43,7 @@ class Storage
 
   def parse_rentals(people, books)
     file_name = 'rentals.json'
-    [] unless File.exist? file_name
+    return [] unless File.exist? file_name
 
     JSON.parse(File.read(file_name)).map do |rental|
       person = people.detect { |p| p.id.eql?(rental['person']['id']) }

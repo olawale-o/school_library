@@ -4,10 +4,11 @@ require_relative 'screen'
 
 class RentalCreator < Creator
   include Screen
-  def initialize(books, people)
+  def initialize(books, people,rentals)
     super()
     @books = books
     @people = people
+    @rentals = rentals
   end
 
   def create
@@ -28,7 +29,7 @@ class RentalCreator < Creator
     person = @people[selected_person_number]
     print 'Date: '
     date = user_input.to_i
-    Rental.new(date, person, book)
+    @rentals << Rental.new(date, person, book)
     puts('Rental created successfully')
   end
 
