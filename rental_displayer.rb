@@ -1,9 +1,3 @@
-
-
-
-
-
-
 require_relative 'displayer'
 
 class RentalDisplayer < Displayer
