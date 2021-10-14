@@ -22,6 +22,15 @@
 - Type `git clone (copied link)` on the currently opened terminal or command prompt
 - Remember to change `(copied link)` to `git@github.com:olawale-o/school_library.git` which is the name of the repository
 
+### Install
+```
+    bundle install
+```
+
+### Test
+```
+    rspec spec
+```
 ## Authors
 
 👤 **Omoogun Olawale**
