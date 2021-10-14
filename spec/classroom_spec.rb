@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Classroom do
   describe '#new' do
-    let(:classroom) { Classroom.new(label: 'Science' ) }
+    let(:classroom) { Classroom.new(label: 'Science') }
     context 'when classroom is instantiated' do
       it 'should return an instance of Classroom' do
         expect(classroom).to be_an_instance_of Classroom
