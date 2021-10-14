@@ -34,7 +34,7 @@ module Screen
     print 'Name: '
     name = user_input
     print 'Specialization: '
-    specialization = user_input == 'n'
+    specialization = user_input
     [age, name, specialization]
   end
 

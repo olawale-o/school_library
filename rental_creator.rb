@@ -4,7 +4,7 @@ require_relative 'screen'
 
 class RentalCreator < Creator
   include Screen
-  def initialize(books, people,rentals)
+  def initialize(books, people, rentals)
     super()
     @books = books
     @people = people
