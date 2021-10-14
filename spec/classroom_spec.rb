@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Classroom do
   describe '#new' do
-    let(:classroom) { Classroom.new({ label: 'Science' }) }
+    let(:classroom) { Classroom.new(label: 'Science' ) }
     context 'when classroom is instantiated' do
       it 'should return an instance of Classroom' do
         expect(classroom).to be_an_instance_of Classroom
@@ -22,12 +22,12 @@ describe Classroom do
     end
   end
 
-  describe '#add_student' do
-    classroom2 = Classroom.new({ label: 'Art' })
-    student = Student.new({ name: 'Elijah', age: 23, classroom: classroom2 })
-    student2 = Student.new({ name: 'Ashkae', age: 22, classroom: classroom2 })
-    classroom2.add_student student
-    classroom2.add_student student2
+  describe '#add_students' do
+    classroom2 = Classroom.new(label: 'Art')
+    student = Student.new(name: 'Elijah', age: 23, classroom: classroom2)
+    student2 = Student.new(name: 'Ashkae', age: 22, classroom: classroom2)
+    classroom2.add_students student
+    classroom2.add_students student2
     context 'classroom' do
       it 'should return student' do
         expect(classroom2.students).to include(student)

@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Person do
   describe '#new' do
-    let(:person) { Person.new({ age: 16 }) }
+    let(:person) { Person.new(age: 16) }
     context 'when person is instantiated with only age' do
       it 'should return an instance of Person' do
         expect(person).to be_an_instance_of Person
@@ -37,7 +37,7 @@ describe Person do
     end
 
     context 'when person is instantiated with all parameters' do
-      let(:person) { Person.new({ age: 16, name: 'Polina', parent_permission: false }) }
+      let(:person) { Person.new(age: 16, name: 'Polina', parent_permission: false) }
       it 'should return an instance of Person' do
         expect(person).to be_an_instance_of Person
       end
@@ -55,19 +55,19 @@ describe Person do
   describe '#can_use_services' do
     context 'when person is above 18' do
       it 'should be allowed' do
-        person = Person.new({ age: 21, name: 'Olawale', parent_permission: true })
+        person = Person.new(age: 21, name: 'Olawale', parent_permission: true)
         expect(person.can_use_services?).to be_truthy
       end
     end
 
     context 'when person is below 18' do
       it 'should not be allowed' do
-        person = Person.new({ age: 12, name: 'Olawale', parent_permission: false })
+        person = Person.new(age: 12, name: 'Olawale', parent_permission: false)
         expect(person.can_use_services?).to be_falsey
       end
 
       it 'should be allowed with parent permission' do
-        person = Person.new({ age: 14, name: 'Olawale', parent_permission: true })
+        person = Person.new(age: 14, name: 'Olawale', parent_permission: true)
         expect(person.can_use_services?).to be_truthy
       end
     end

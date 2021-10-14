@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe Teacher do
-  let(:teacher) { Teacher.new({ age: 52, name: 'Osunde', specialization: 'literature' }) }
+  let(:teacher) { Teacher.new(age: 52, name: 'Osunde', specialization: 'literature') }
   describe '#new' do
     context 'when teacher is instantiated' do
       it 'should return an instance of Teacher' do

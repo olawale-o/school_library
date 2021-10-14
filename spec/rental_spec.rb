@@ -5,10 +5,10 @@ describe Rental do
     classroom = Classroom.new(label: 'Science')
     student = Student.new(age: 23, name: 'Polina', classroom: classroom)
     teacher = Teacher.new(age: 43, name: 'Vichuge', specialization: 'literature')
-    book = Book.new({ title: 'Sun Tzu', author: 'Art of war' })
+    book = Book.new(title: 'Sun Tzu', author: 'Art of war')
 
-    rental1 = Rental.new({ date: '2020-01-12', book: book, person: student })
-    rental2 = Rental.new({ date: '2020-10-12', book: book, person: teacher })
+    rental1 = Rental.new('2020-01-12', student, book)
+    rental2 = Rental.new('2020-10-12', teacher, book)
 
     it 'should return an instance of Rental' do
       expect(rental1).to be_an_instance_of Rental

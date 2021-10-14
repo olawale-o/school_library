@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 describe Book do
-  let(:book) { Book.new({ title: 'Art of war', author: 'Sun Tzu' }) }
+  let(:book) { Book.new(title: 'Art of war', author: 'Sun Tzu') }
   describe '#new' do
     it 'should return an instance of Book' do
       expect(book).to be_an_instance_of Book
