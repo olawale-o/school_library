@@ -4,7 +4,7 @@ require_relative 'creator'
 require_relative 'screen'
 
 class PersonCreator < Creator
-  include 'Screen'
+  include Screen
   def initialize(people)
     super()
     @people = people

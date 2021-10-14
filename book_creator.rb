@@ -3,7 +3,7 @@ require_relative 'book'
 require_relative 'screen'
 
 class BookCreator < Creator
-  include 'Screen'
+  include Screen
   attr_accessor :books
 
   def initialize(books)
